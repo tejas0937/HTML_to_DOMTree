@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-function TreeNode({ node }) {
+function TreeNode({ node, hasParent = false }) {
   const [expanded, setExpanded] = useState(true);
   const hasChildren = Array.isArray(node.children) && node.children.length > 0;
   const attributeEntries = Object.entries(node.attributes || {});
 
   return (
-    <div className="flow-node">
+    <div className={`flow-node ${hasParent ? 'has-parent' : ''}`}>
       <div className={`flow-card ${hasChildren ? 'has-children' : ''}`}>
         <button
           type="button"
@@ -33,7 +33,9 @@ function TreeNode({ node }) {
       {hasChildren && expanded && (
         <div className="flow-branch">
           {node.children.map((child, index) => (
-            <TreeNode key={`${child.tag}-${index}`} node={child} />
+            <div key={`${child.tag}-${index}`} className="flow-branch-item">
+              <TreeNode node={child} hasParent />
+            </div>
           ))}
         </div>
       )}
@@ -49,6 +51,8 @@ export default function App() {
   const [tree, setTree] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [darkMode, setDarkMode] = useState(true);
+  const [showInfo, setShowInfo] = useState(false);
 
   async function handleGenerate() {
     setLoading(true);
@@ -77,11 +81,30 @@ export default function App() {
   }
 
   return (
-    <div className="app-shell">
-      <header>
-        <h1>HTML to DOM Tree</h1>
-        <p>Paste HTML and visualize it as a nested DOM tree.</p>
+    <div className={`app-shell ${darkMode ? 'theme-dark' : 'theme-light'}`}>
+      <header className="topbar">
+        <div>
+          <h1>HTML TO DOM TREE</h1>
+          <p>by TEJAS</p>
+        </div>
+        <div className="topbar-actions">
+          <button type="button" className="ghost-button" onClick={() => setDarkMode((value) => !value)}>
+            {darkMode ? '☀️ Normal Mode' : '🌙 Dark Mode'}
+          </button>
+          <button type="button" className="ghost-button" onClick={() => setShowInfo((value) => !value)}>
+            ℹ️ Info
+          </button>
+        </div>
       </header>
+
+      {showInfo && (
+        <section className="panel info-panel">
+          <h3>About this website</h3>
+          <p>
+            Paste raw HTML, send it to the backend parser, and view the resulting DOM tree as a top-down flowchart.
+          </p>
+        </section>
+      )}
 
       <section className="panel input-panel">
         <label htmlFor="html-input">HTML input</label>
@@ -103,7 +126,13 @@ export default function App() {
           <div className="message">Your DOM tree will appear here.</div>
         ) : null}
         {loading ? <div className="message">Parsing HTML...</div> : null}
-        {tree ? <TreeNode node={tree} /> : null}
+        {tree ? (
+          <div className="tree-scroll">
+            <div className="tree-root">
+              <TreeNode node={tree} />
+            </div>
+          </div>
+        ) : null}
       </section>
     </div>
   );
