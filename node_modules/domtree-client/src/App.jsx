@@ -128,10 +128,12 @@ export default function App() {
         {loading ? <div className="message">Parsing HTML...</div> : null}
         {tree ? (
           <div className="tree-scroll">
-            <div className="tree-root">
-              <TreeNode node={tree} />
-            </div>
-          </div>
+    <div className="tree-wrapper">
+        <div className="tree-root">
+            <TreeNode node={tree} />
+        </div>
+    </div>
+</div>
         ) : null}
       </section>
     </div>
