@@ -53,6 +53,7 @@ export default function App() {
   const [error, setError] = useState('');
   const [darkMode, setDarkMode] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
+  const [zoom, setZoom] = useState(1);
 
   async function handleGenerate() {
     setLoading(true);
@@ -79,6 +80,10 @@ export default function App() {
       setLoading(false);
     }
   }
+
+  const increaseZoom = () => setZoom((value) => Math.min(2, value + 0.1));
+  const decreaseZoom = () => setZoom((value) => Math.max(0.5, value - 0.1));
+  const resetZoom = () => setZoom(1);
 
   return (
     <div className={`app-shell ${darkMode ? 'theme-dark' : 'theme-light'}`}>
@@ -127,13 +132,27 @@ export default function App() {
         ) : null}
         {loading ? <div className="message">Parsing HTML...</div> : null}
         {tree ? (
-          <div className="tree-scroll">
-    <div className="tree-wrapper">
-        <div className="tree-root">
-            <TreeNode node={tree} />
-        </div>
-    </div>
-</div>
+          <>
+            <div className="zoom-controls">
+              <button type="button" className="ghost-button" onClick={decreaseZoom}>
+                ➖ Zoom Out
+              </button>
+              <button type="button" className="ghost-button" onClick={resetZoom}>
+                🔄 Reset
+              </button>
+              <button type="button" className="ghost-button" onClick={increaseZoom}>
+                ➕ Zoom In
+              </button>
+              <span className="zoom-label">{Math.round(zoom * 100)}%</span>
+            </div>
+            <div className="tree-scroll">
+              <div className="tree-wrapper" style={{ transform: `scale(${zoom})` }}>
+                <div className="tree-root">
+                  <TreeNode node={tree} />
+                </div>
+              </div>
+            </div>
+          </>
         ) : null}
       </section>
     </div>
