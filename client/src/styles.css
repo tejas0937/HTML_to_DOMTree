@@ -427,3 +427,269 @@ button:disabled {
 }
 
 }
+
+/* ================= TREE ANALYSIS ================= */
+
+.tree-analysis {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-top: 1px solid #334155;
+}
+
+.analysis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.analysis-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #60a5fa;
+  margin-bottom: 0.35rem;
+}
+
+.analysis-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.analysis-header p {
+  margin: 0.4rem 0 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.traversal-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.traversal-button {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #cbd5e1;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.traversal-button span {
+  margin-right: 0.45rem;
+  color: #60a5fa;
+}
+
+.traversal-button:hover {
+  transform: translateY(-2px);
+  border-color: #60a5fa;
+  background: #172554;
+}
+
+.traversal-button.active {
+  background: linear-gradient(
+    135deg,
+    #1d4ed8,
+    #2563eb
+  );
+  border-color: #60a5fa;
+  color: white;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
+}
+
+.traversal-result {
+  padding: 1.25rem;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.traversal-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.traversal-title-row h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.complexity-badge {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #1d4ed8;
+  color: #dbeafe;
+  font-family: Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.traversal-description {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  margin: 0.8rem 0 1.2rem;
+}
+
+.sequence-section h4 {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  color: #93c5fd;
+}
+
+.sequence-box {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #020617;
+  border: 1px solid #1e293b;
+  font-family: Consolas, monospace;
+  white-space: nowrap;
+}
+
+.sequence-node {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.complexity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.stat-card {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  transition: 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: #475569;
+}
+
+.stat-card span {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  margin-bottom: 0.45rem;
+}
+
+.stat-card strong {
+  display: block;
+  color: #f8fafc;
+  font-size: 1.15rem;
+  font-family: Consolas, monospace;
+}
+
+.tree-stats {
+  margin-top: 1.5rem;
+}
+
+.stat-heading {
+  margin-bottom: 0.9rem;
+}
+
+.stat-heading h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.app-shell.theme-light .tree-analysis {
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .analysis-header p {
+  color: #64748b;
+}
+
+.app-shell.theme-light .traversal-button {
+  background: #f8fafc;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .traversal-button:hover {
+  background: #eff6ff;
+  border-color: #60a5fa;
+}
+
+.app-shell.theme-light .traversal-button.active {
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #1d4ed8,
+    #2563eb
+  );
+}
+
+.app-shell.theme-light .traversal-result {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .traversal-description {
+  color: #475569;
+}
+
+.app-shell.theme-light .sequence-box {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .stat-card {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .stat-card span {
+  color: #64748b;
+}
+
+.app-shell.theme-light .stat-card strong {
+  color: #111827;
+}
+
+@media (max-width: 768px) {
+  .traversal-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .complexity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tree-analysis {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .complexity-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
