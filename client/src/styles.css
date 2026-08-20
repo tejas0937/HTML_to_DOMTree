@@ -428,268 +428,692 @@ button:disabled {
 
 }
 
-/* ================= TREE ANALYSIS ================= */
+/* =========================================================
+   DOM TREE HEADING
+   ========================================================= */
 
-.tree-analysis {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  border-top: 1px solid #334155;
+.dom-tree-heading {
+  margin: 1rem 0 0.5rem;
 }
 
-.analysis-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.25rem;
-}
-
-.analysis-eyebrow {
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  color: #60a5fa;
-  margin-bottom: 0.35rem;
-}
-
-.analysis-header h2 {
+.dom-tree-heading h2 {
   margin: 0;
   font-size: 1.5rem;
 }
 
-.analysis-header p {
+.dom-tree-heading p {
   margin: 0.4rem 0 0;
   color: #94a3b8;
   font-size: 0.9rem;
 }
 
-.traversal-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
-  margin-bottom: 1.25rem;
+.app-shell.theme-light .dom-tree-heading p {
+  color: #64748b;
 }
 
-.traversal-button {
-  margin: 0;
-  padding: 0.9rem 1rem;
-  border: 1px solid #334155;
-  border-radius: 12px;
-  background: #0f172a;
-  color: #cbd5e1;
-  font-weight: 700;
-  transition: 0.2s ease;
+
+/* =========================================================
+   BINARY TREE GENERATOR
+   ========================================================= */
+
+.binary-generator-panel {
+  margin-top: 1.5rem;
 }
 
-.traversal-button span {
-  margin-right: 0.45rem;
-  color: #60a5fa;
-}
-
-.traversal-button:hover {
-  transform: translateY(-2px);
-  border-color: #60a5fa;
-  background: #172554;
-}
-
-.traversal-button.active {
-  background: linear-gradient(
-    135deg,
-    #1d4ed8,
-    #2563eb
-  );
-  border-color: #60a5fa;
-  color: white;
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25);
-}
-
-.traversal-result {
-  padding: 1.25rem;
-  border: 1px solid #334155;
-  border-radius: 14px;
-  background: rgba(15, 23, 42, 0.7);
+.binary-header {
   margin-bottom: 1.5rem;
 }
 
-.traversal-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.traversal-title-row h3 {
+.binary-header h2 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
-.complexity-badge {
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  background: #1d4ed8;
-  color: #dbeafe;
-  font-family: Consolas, monospace;
-  font-size: 0.8rem;
-  font-weight: 700;
+.binary-header p {
+  margin: 0.4rem 0 0;
+  color: #94a3b8;
+  line-height: 1.6;
 }
 
-.traversal-description {
-  color: #cbd5e1;
-  line-height: 1.7;
-  font-size: 0.9rem;
-  margin: 0.8rem 0 1.2rem;
+.binary-input-section {
+  padding: 1.25rem;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.65);
 }
 
-.sequence-section h4 {
-  margin: 0 0 0.6rem;
-  font-size: 0.9rem;
-  color: #93c5fd;
-}
-
-.sequence-box {
-  overflow-x: auto;
-  padding: 1rem;
-  border-radius: 10px;
-  background: #020617;
-  border: 1px solid #1e293b;
-  font-family: Consolas, monospace;
-  white-space: nowrap;
-}
-
-.sequence-node {
-  color: #60a5fa;
-  font-weight: 700;
-}
-
-.complexity-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.binary-input-row {
+  display: flex;
   gap: 0.75rem;
-  margin-top: 1rem;
+  align-items: center;
 }
 
-.stat-card {
+.binary-input-row input {
+  width: 180px;
+  border: 1px solid #475569;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  background: #020617;
+  color: #f8fafc;
+  outline: none;
+}
+
+.binary-input-row input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.12);
+}
+
+.binary-input-row button {
+  margin: 0;
+}
+
+.binary-error {
+  margin-top: 0.75rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(127, 29, 29, 0.25);
+  border: 1px solid #7f1d1d;
+  color: #fca5a5;
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   BINARY TREE SUMMARY
+   ========================================================= */
+
+.binary-tree-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.binary-summary-card {
   padding: 1rem;
   border-radius: 12px;
-  background: #0f172a;
   border: 1px solid #334155;
-  transition: 0.2s ease;
+  background: #0f172a;
 }
 
-.stat-card:hover {
-  transform: translateY(-2px);
-  border-color: #475569;
-}
-
-.stat-card span {
+.binary-summary-card span {
   display: block;
   color: #94a3b8;
   font-size: 0.75rem;
   margin-bottom: 0.45rem;
 }
 
-.stat-card strong {
-  display: block;
-  color: #f8fafc;
-  font-size: 1.15rem;
+.binary-summary-card strong {
   font-family: Consolas, monospace;
+  font-size: 1.2rem;
+  color: #f8fafc;
 }
 
-.tree-stats {
-  margin-top: 1.5rem;
+
+/* =========================================================
+   BINARY TREE CANVAS
+   ========================================================= */
+
+.binary-tree-scroll {
+  width: 100%;
+  overflow: auto;
+  margin-top: 1.25rem;
+  padding: 2rem 1rem;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(37, 99, 235, 0.08),
+      transparent 60%
+    ),
+    #020617;
 }
 
-.stat-heading {
-  margin-bottom: 0.9rem;
+.binary-tree-canvas {
+  display: flex;
+  justify-content: center;
+  min-width: max-content;
+  padding: 1rem 3rem 2rem;
 }
 
-.stat-heading h3 {
-  margin: 0;
-  font-size: 1.1rem;
+
+/* =========================================================
+   BINARY TREE NODES
+   ========================================================= */
+
+.binary-node-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-}
-
-.app-shell.theme-light .tree-analysis {
-  border-color: #cbd5e1;
-}
-
-.app-shell.theme-light .analysis-header p {
-  color: #64748b;
-}
-
-.app-shell.theme-light .traversal-button {
-  background: #f8fafc;
-  color: #334155;
-  border-color: #cbd5e1;
-}
-
-.app-shell.theme-light .traversal-button:hover {
-  background: #eff6ff;
-  border-color: #60a5fa;
-}
-
-.app-shell.theme-light .traversal-button.active {
-  color: white;
+.binary-node {
+  position: relative;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(
     135deg,
     #1d4ed8,
     #2563eb
   );
+  border: 2px solid #60a5fa;
+  color: white;
+  font-family: Consolas, monospace;
+  font-weight: 800;
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.3),
+    0 0 0 4px rgba(37, 99, 235, 0.08);
 }
 
-.app-shell.theme-light .traversal-result {
+.binary-children {
+  position: relative;
+  display: flex;
+  gap: 80px;
+  padding-top: 55px;
+}
+
+.binary-children::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #475569;
+}
+
+.binary-child {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-width: 70px;
+}
+
+.binary-child::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  transform: translateX(-50%);
+  background: #475569;
+}
+
+.empty-binary-node {
+  width: 48px;
+  height: 48px;
+}
+
+
+/* =========================================================
+   TRAVERSAL SECTION
+   ========================================================= */
+
+.binary-traversal-section {
+  margin-top: 1.5rem;
+}
+
+.binary-traversal-section h3 {
+  margin: 0.2rem 0 1rem;
+  font-size: 1.1rem;
+}
+
+.binary-traversal-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.binary-traversal-button {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #cbd5e1;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.binary-traversal-button span {
+  margin-right: 0.5rem;
+  color: #60a5fa;
+  font-size: 1.1rem;
+}
+
+.binary-traversal-button:hover {
+  transform: translateY(-2px);
+  border-color: #60a5fa;
+  background: #172554;
+}
+
+.binary-traversal-button.active {
+  background: linear-gradient(
+    135deg,
+    #1d4ed8,
+    #2563eb
+  );
+  color: white;
+  border-color: #60a5fa;
+  box-shadow:
+    0 8px 25px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================================
+   BINARY ANALYSIS
+   ========================================================= */
+
+.binary-analysis {
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.selected-traversal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.selected-traversal-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.complexity-badge {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: #1d4ed8;
+  color: #dbeafe;
+  font-family: Consolas, monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.binary-description {
+  margin: 0.8rem 0 1.25rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+.binary-sequence-section h4 {
+  margin: 0 0 0.6rem;
+  color: #93c5fd;
+  font-size: 0.9rem;
+}
+
+.binary-sequence-box {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  background: #020617;
+  white-space: nowrap;
+  font-family: Consolas, monospace;
+}
+
+.binary-sequence-node {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   METRICS
+   ========================================================= */
+
+.binary-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.binary-metric-card {
+  padding: 1rem;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #0f172a;
+}
+
+.binary-metric-card span {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  margin-bottom: 0.45rem;
+}
+
+.binary-metric-card strong {
+  display: block;
+  color: #f8fafc;
+  font-family: Consolas, monospace;
+  font-size: 1rem;
+}
+
+
+/* =========================================================
+   COMPLEXITY INFORMATION
+   ========================================================= */
+
+.complexity-information {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.complexity-information div {
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #020617;
+}
+
+.complexity-information span {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.complexity-information strong {
+  color: #60a5fa;
+  font-family: Consolas, monospace;
+}
+
+
+/* =========================================================
+   BEST TRAVERSAL
+   ========================================================= */
+
+.best-traversal-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 14px;
+  border: 1px solid #2563eb;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(29, 78, 216, 0.18),
+      rgba(15, 23, 42, 0.85)
+    );
+  box-shadow:
+    0 12px 35px rgba(37, 99, 235, 0.15);
+}
+
+.best-traversal-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #1d4ed8;
+  font-size: 1.5rem;
+}
+
+.best-traversal-content h3 {
+  margin: 0.1rem 0 0.4rem;
+}
+
+.best-traversal-name {
+  display: block;
+  color: #60a5fa;
+  font-size: 1.2rem;
+  font-family: Consolas, monospace;
+}
+
+.best-traversal-content p {
+  margin: 0.6rem 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.best-traversal-time {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.best-traversal-time strong {
+  color: #f8fafc;
+  font-family: Consolas, monospace;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.binary-empty-state {
+  margin-top: 1.25rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border: 1px dashed #475569;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.binary-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.binary-empty-state h3 {
+  margin: 0;
+}
+
+.binary-empty-state p {
+  max-width: 550px;
+  margin: 0.6rem auto 0;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.benchmark-hint {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(30, 64, 175, 0.12);
+  border: 1px solid #1e40af;
+  color: #bfdbfe;
+  text-align: center;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+   ========================================================= */
+
+.app-shell.theme-light .binary-header p {
+  color: #64748b;
+}
+
+.app-shell.theme-light .binary-input-section {
   background: #f8fafc;
   border-color: #cbd5e1;
 }
 
-.app-shell.theme-light .traversal-description {
-  color: #475569;
-}
-
-.app-shell.theme-light .sequence-box {
-  background: #ffffff;
+.app-shell.theme-light .binary-input-row input {
+  background: white;
+  color: #111827;
   border-color: #cbd5e1;
 }
 
-.app-shell.theme-light .stat-card {
-  background: #ffffff;
+.app-shell.theme-light .binary-summary-card {
+  background: white;
   border-color: #cbd5e1;
 }
 
-.app-shell.theme-light .stat-card span {
+.app-shell.theme-light .binary-summary-card span {
   color: #64748b;
 }
 
-.app-shell.theme-light .stat-card strong {
+.app-shell.theme-light .binary-summary-card strong {
   color: #111827;
 }
 
-@media (max-width: 768px) {
-  .traversal-buttons {
+.app-shell.theme-light .binary-tree-scroll {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(37, 99, 235, 0.06),
+      transparent 60%
+    ),
+    #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .binary-children::before,
+.app-shell.theme-light .binary-child::before {
+  background: #94a3b8;
+}
+
+.app-shell.theme-light .binary-traversal-button {
+  background: white;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .binary-traversal-button:hover {
+  background: #eff6ff;
+}
+
+.app-shell.theme-light .binary-analysis {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .binary-description {
+  color: #475569;
+}
+
+.app-shell.theme-light .binary-sequence-box {
+  background: white;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .binary-metric-card {
+  background: white;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .binary-metric-card span {
+  color: #64748b;
+}
+
+.app-shell.theme-light .binary-metric-card strong {
+  color: #111827;
+}
+
+.app-shell.theme-light .complexity-information div {
+  background: white;
+  border-color: #cbd5e1;
+}
+
+.app-shell.theme-light .best-traversal-card {
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #ffffff
+    );
+}
+
+.app-shell.theme-light .best-traversal-content p {
+  color: #475569;
+}
+
+.app-shell.theme-light .best-traversal-time strong {
+  color: #111827;
+}
+
+.app-shell.theme-light .binary-empty-state {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.app-shell.theme-light .binary-empty-state p {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .binary-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .binary-tree-summary {
     grid-template-columns: 1fr;
   }
 
-  .complexity-grid {
-    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+
+  .binary-input-row {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .binary-input-row input {
+    width: 100%;
   }
 
-  .tree-analysis {
-    padding: 1rem;
+  .binary-traversal-buttons {
+    grid-template-columns: 1fr;
   }
+
+  .binary-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .complexity-information {
+    grid-template-columns: 1fr;
+  }
+
+  .best-traversal-card {
+    flex-direction: column;
+  }
+
+  .binary-tree-canvas {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
 }
 
 @media (max-width: 480px) {
-  .complexity-grid,
-  .stats-grid {
+
+  .binary-metrics-grid {
     grid-template-columns: 1fr;
   }
+
+  .binary-analysis {
+    padding: 1rem;
+  }
+
 }
